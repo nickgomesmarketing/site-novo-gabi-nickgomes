@@ -154,15 +154,17 @@ section{padding-block:110px}
 
 /* 3 · modelos */
 .models{background:var(--soft)}
-.live{display:grid;grid-template-columns:1.3fr 1fr;background:var(--navy);color:#fff;border-radius:26px;overflow:hidden;margin-bottom:26px}
-.live .shot{position:relative;min-height:320px;background:var(--navy2)}
-.live .shot .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
-.live .txt{padding:40px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.lives{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:26px}
+.live{display:flex;flex-direction:column;background:var(--navy);color:#fff;border-radius:26px;overflow:hidden;min-width:0}
+.live .shot{display:block;position:relative;aspect-ratio:900/497;background:var(--navy2);overflow:hidden}
+.live .shot .ph{position:absolute;inset:0;width:100%;height:100%;transition:transform .5s ease}
+.live .shot:hover .ph{transform:scale(1.03)}
+.live .txt{padding:30px 34px 34px;display:flex;flex-direction:column;gap:12px;flex:1}
 .badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-l)}
 .badge:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--blue-l);box-shadow:0 0 0 5px rgba(169,195,215,.2)}
-.live h3{font-size:30px;font-weight:900}
+.live h3{font-size:26px;font-weight:900}
 .live p{color:#C1CFD8;font-size:17px}
-.live .btn{align-self:flex-start;background:#fff;color:var(--navy);margin-top:6px}
+.live .btn{align-self:flex-start;background:#fff;color:var(--navy);margin-top:auto}
 .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{display:block;text-decoration:none;color:var(--ink);background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line);transition:transform .2s ease,box-shadow .2s ease;min-width:0}
 .card:hover{transform:translateY(-5px);box-shadow:0 24px 40px -22px rgba(21,35,47,.45)}
@@ -243,12 +245,11 @@ footer a{color:#fff;font-weight:700;text-decoration:none}
 }
 @media (max-width:900px){
   nav.links{display:none}
-  .live,.faq .grid{grid-template-columns:1fr}
+  .lives,.faq .grid{grid-template-columns:1fr}
   .faq .side{position:static}
   .gal{grid-template-columns:1fr 1fr}
   .wall{inset:-80px -300px -80px -100px;opacity:.55}
   .hero:after{background:linear-gradient(180deg,rgba(21,35,47,.82),rgba(21,35,47,.95))}
-  .live .shot{min-height:220px}
 }
 @media (max-width:560px){
   body{font-size:16px}
@@ -434,6 +435,7 @@ html.gx-open{overflow:hidden}
 .ph{display:block;background-size:cover;background-position:top center;background-repeat:no-repeat}
 .ph-advocacia{background-image:url(img/ph-advocacia.jpg)}
 .ph-combat-rush{background-image:url(img/ph-combat-rush.jpg)}
+.ph-guilherme{background-image:url(img/ph-guilherme.jpg)}
 .ph-condominio{background-image:url(img/ph-condominio.jpg)}
 .ph-contabilidade{background-image:url(img/ph-contabilidade.jpg)}
 .ph-educacao{background-image:url(img/ph-educacao.jpg)}
@@ -531,14 +533,26 @@ html.gx-open{overflow:hidden}
 <!-- 3 · MODELOS -->
 <section class="models" id="modelos"><div class="wrap">
   <div class="head"><span class="eyebrow"><span class="chk"></span>Modelos e portfólio</span><h2>Veja como o seu site pode ficar</h2></div>
+  <!-- ✏️ PORTFÓLIO: sites de clientes no ar (lado a lado; no celular ficam um embaixo do outro) -->
+  <div class="lives">
   <div class="live">
-    <div class="shot"><span class="ph ph-combat-rush" role="img" aria-label="Site da Combat Rush Paintball no ar"></span></div>
+    <a class="shot" href="https://combatrushpaintball.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph ph-combat-rush" role="img" aria-label="Site da Combat Rush Paintball no ar"></span></a>
     <div class="txt">
       <span class="badge">Site no ar</span>
       <h3>Combat Rush Paintball</h3>
       <p>Calculadora de preço, reserva pelo WhatsApp e fotos reais do campo.</p>
       <a class="btn" href="https://combatrushpaintball.com.br" target="_blank" rel="noopener">Ver o site no ar ↗</a>
     </div>
+  </div>
+  <div class="live">
+    <a class="shot" href="https://guilhermeazevedoimoveis.com.br" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph ph-guilherme" role="img" aria-label="Site do consultor imobiliário Guilherme Azevedo no ar"></span></a>
+    <div class="txt">
+      <span class="badge">Site no ar</span>
+      <h3>Guilherme Azevedo</h3>
+      <p>Consultor imobiliário: empreendimentos na planta, simulador e atendimento pelo WhatsApp.</p>
+      <a class="btn" href="https://guilhermeazevedoimoveis.com.br" target="_blank" rel="noopener">Ver o site no ar ↗</a>
+    </div>
+  </div>
   </div>
   <div class="gal"><a class="card" href="#modelos" role="button" data-modelo="saude" aria-label="Ver as telas do modelo de saúde"><div class="bar"><i></i><i></i><i></i></div><div class="im"><span class="ph ph-saude" role="img" aria-label="Modelo de site para saúde: clínica odontológica"></span><span class="ver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Ver 5 telas</span></div><div class="lb"><b>Saúde</b><span>Clínica odontológica</span></div></a><a class="card" href="#modelos" role="button" data-modelo="educacao" aria-label="Ver as telas do modelo de educação"><div class="bar"><i></i><i></i><i></i></div><div class="im"><span class="ph ph-educacao" role="img" aria-label="Modelo de site para educação: escola de idiomas"></span><span class="ver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Ver 5 telas</span></div><div class="lb"><b>Educação</b><span>Escola de idiomas</span></div></a><a class="card" href="#modelos" role="button" data-modelo="servicos" aria-label="Ver as telas do modelo de serviços"><div class="bar"><i></i><i></i><i></i></div><div class="im"><span class="ph ph-servicos" role="img" aria-label="Modelo de site para serviços: eletricista e encanador"></span><span class="ver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Ver 5 telas</span></div><div class="lb"><b>Serviços</b><span>Eletricista e encanador</span></div></a><a class="card" href="#modelos" role="button" data-modelo="condominio" aria-label="Ver as telas do modelo de condomínios"><div class="bar"><i></i><i></i><i></i></div><div class="im"><span class="ph ph-condominio" role="img" aria-label="Modelo de site para condomínios: administradora"></span><span class="ver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Ver 5 telas</span></div><div class="lb"><b>Condomínios</b><span>Administradora</span></div></a><a class="card" href="#modelos" role="button" data-modelo="contabilidade" aria-label="Ver as telas do modelo de contabilidade"><div class="bar"><i></i><i></i><i></i></div><div class="im"><span class="ph ph-contabilidade" role="img" aria-label="Modelo de site para contabilidade: escritório contábil"></span><span class="ver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Ver 5 telas</span></div><div class="lb"><b>Contabilidade</b><span>Escritório contábil</span></div></a><a class="card" href="#modelos" role="button" data-modelo="advocacia" aria-label="Ver as telas do modelo de advocacia"><div class="bar"><i></i><i></i><i></i></div><div class="im"><span class="ph ph-advocacia" role="img" aria-label="Modelo de site para advocacia: escritório de advocacia"></span><span class="ver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>Ver 5 telas</span></div><div class="lb"><b>Advocacia</b><span>Escritório de advocacia</span></div></a></div>
 </div></section>
